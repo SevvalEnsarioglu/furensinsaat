@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   TAILWIND THEME — Font families
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FURENS İNŞAAT — DESIGN TOKEN SYSTEM
+   Primary:   #034834  (Furens Teal)
+   Secondary: #B6B4B5  (Furens Gray)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   LIGHT MODE (default)
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  --background:          #FFFFFF;
+  --background-alt:      #F7F7F8;
+  --background-subtle:   #F1F1F2;
+  --surface:             #FFFFFF;
+  --surface-secondary:   #F1F1F2;
+  --surface-elevated:    #FFFFFF;
+
+  /* ── Foreground / Text ───────────────────────────────────── */
+  --foreground:          #1A191A;
+  --foreground-secondary: #494748;
+  --muted:               #8F8D8E;
+  --text-on-primary:     #FFFFFF;
+
+  /* ── Primary — Furens Teal scale ────────────────────────── */
+  --primary:             #034834;
+  --primary-hover:       #0A5A60;
+  --primary-light:       #1D888F;
+  --primary-bright:      #2FA3A9;
+  --primary-soft:        #CCE9E8;
+  --primary-subtle:      #E6F4F3;
+
+  /* Teal scale (available as individual tokens) */
+  --teal-900: #034834;
+  --teal-800: #0A5A60;
+  --teal-700: #147178;
+  --teal-600: #1D888F;
+  --teal-500: #2FA3A9;
+  --teal-400: #66C2C4;
+  --teal-300: #99D3D4;
+  --teal-200: #B3DEDE;
+  --teal-100: #CCE9E8;
+  --teal-50:  #E6F4F3;
+
+  /* ── Secondary — Furens Gray scale ──────────────────────── */
+  --secondary:           #B6B4B5;
+  --gray-900: #2B2A2B;
+  --gray-800: #494748;
+  --gray-600: #6B696A;
+  --gray-500: #8F8D8E;
+  --gray-400: #B6B4B5;
+  --gray-300: #D4D2D3;
+  --gray-200: #E1DFE0;
+  --gray-100: #EDECEC;
+  --gray-50:  #F6F5F6;
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --border:              #E1DFE0;
+  --border-strong:       #D4D2D3;
+  --divider:             #EDECEC;
+
+  /* ── Semantic ────────────────────────────────────────────── */
+  --success:  #2E7D32;
+  --info:     #0097A7;
+  --warning:  #F9A825;
+  --error:    #D32F2F;
+  --btn-secondary: #034834;
+
+  /* ── Navigation / Chrome ─────────────────────────────────── */
+  --navbar-background:   rgba(255, 255, 255, 0.90);
+  --footer-background:   #E1DFE0; /* Furens Gray-200 */
+  --footer-foreground:   #1A191A;
+  --footer-muted:        #494748;
+  --footer-border:       #D4D2D3;
+  --footer-accent:       #034834; /* Furens Teal */
+
+  /* ── Overlay / Shadow ────────────────────────────────────── */
+  --overlay:             rgba(26, 25, 26, 0.45);
+  --shadow-soft:         0 4px 24px rgba(3, 72, 52, 0.06);
+  --shadow-medium:       0 8px 40px rgba(3, 72, 52, 0.10);
+  --shadow-strong:       0 16px 60px rgba(3, 72, 52, 0.14);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DARK MODE
+   Teal-tinted premium dark — not pure black
+   ───────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  --background:          #0F1112;
+  --background-alt:      #16181A;
+  --background-subtle:   #1F2123;
+  --surface:             #1F2123;
+  --surface-secondary:   #2A2C2D;
+  --surface-elevated:    #333638;
+
+  /* ── Foreground / Text ───────────────────────────────────── */
+  --foreground:          #F3F2F3;
+  --foreground-secondary: #D8D6D7;
+  --muted:               #B6B4B5;
+  --text-on-primary:     #FFFFFF;
+
+  /* ── Primary — Dark mode teal (elevated for visibility) ─── */
+  --primary:             #1D888F;
+  --primary-hover:       #2FA3A9;
+  --primary-light:       #54B0AC;
+  --primary-bright:      #66C2C4;
+  --primary-soft:        #0A2A28;
+  --primary-subtle:      #0D1F1D;
+
+  /* Teal scale (dark mode — shifted for visibility) */
+  --teal-900: #034834;
+  --teal-800: #0A5A60;
+  --teal-700: #147178;
+  --teal-600: #1D888F;
+  --teal-500: #2FA3A9;
+  --teal-400: #54B0AC;
+  --teal-300: #66C2C4;
+  --teal-200: #99D3D4;
+  --teal-100: #B3DEDE;
+  --teal-50:  #CCE9E8;
+
+  /* ── Secondary — Gray (same base) ───────────────────────── */
+  --secondary:           #B6B4B5;
+  --gray-900: #2B2A2B;
+  --gray-800: #494748;
+  --gray-600: #6B696A;
+  --gray-500: #8F8D8E;
+  --gray-400: #B6B4B5;
+  --gray-300: #D4D2D3;
+  --gray-200: #3A3C3D;
+  --gray-100: #4E5052;
+  --gray-50:  #2A2C2D;
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --border:              #3A3C3D;
+  --border-strong:       #4E5052;
+  --divider:             #2A2C2D;
+
+  /* ── Semantic ────────────────────────────────────────────── */
+  --success:  #4CAF50;
+  --info:     #26C6DA;
+  --warning:  #FFB300;
+  --error:    #EF5350;
+  --btn-secondary: #54B0AC;
+
+  /* ── Navigation / Chrome ─────────────────────────────────── */
+  --navbar-background:   rgba(15, 17, 18, 0.92);
+  --footer-background:   #16181A;
+  --footer-foreground:   #F3F2F3;
+  --footer-muted:        #B6B4B5;
+  --footer-border:       #2A2C2D;
+  --footer-accent:       #66C2C4;
+
+  /* ── Overlay / Shadow ────────────────────────────────────── */
+  --overlay:             rgba(0, 0, 0, 0.65);
+  --shadow-soft:         0 4px 24px rgba(0, 0, 0, 0.30);
+  --shadow-medium:       0 8px 40px rgba(0, 0, 0, 0.45);
+  --shadow-strong:       0 16px 60px rgba(0, 0, 0, 0.60);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BASE RESET & BODY
+   ───────────────────────────────────────────────────────────── */
+/* Base styles are handled by Tailwind's preflight */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.65;
+  font-size: 16px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TYPOGRAPHY
+   ───────────────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--foreground);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--foreground-secondary);
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SELECTION
+   ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--primary-soft);
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLLBAR
+   ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
