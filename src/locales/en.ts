@@ -22,7 +22,7 @@ export const en: Translations = {
     legal: 'Legal Documents',
     contactUs: 'Contact Us',
     address: 'Peyas District, Mahabad Boulevard (75. Yol), Kutay Sato Plaza, Exterior Door No: 73, Interior Door No: 41, 21070 Kayapinar / Diyarbakir',
-    phone: '+90 312 397 09 29',
+    phone: '+90 507 066 01 42',
     email: 'info@furensinsaat.com',
     copyright: 'Copyright © 2026 Furens İnşaat. All rights reserved.',
     kvkk: 'Protection of Personal Data',
@@ -37,8 +37,40 @@ export const en: Translations = {
 
   pages: {
     home: {
-      title: 'Home',
-      placeholder: 'Home page content will be added soon.',
+      hero: {
+        eyebrow: 'FURENS CONSTRUCTION ARCHITECTURE & BUILD',
+        titleLine1: 'BUILDING',
+        titleLine2: 'THE FUTURE.',
+        description: 'Creating enduring living spaces by combining modern architecture with strong engineering principles.',
+        projectsCTA: 'EXPLORE PROJECTS',
+        aboutCTA: 'ABOUT US',
+      },
+      intro: {
+        label: '01 / FURENS',
+        title: 'BUILDING MORE THAN\nJUST LIVING SPACES.',
+        description: 'Furens Construction develops high-quality, sustainable living spaces by combining modern architectural concepts with rigorous engineering standards.',
+        cta: 'DISCOVER FURENS',
+      },
+      projects: {
+        label: '02 / PROJECTS',
+        title: 'FEATURED PROJECTS',
+        description: 'A curated selection of our projects where architecture, life, and engineering meet.',
+        viewProject: 'VIEW',
+      },
+      stats: {
+        title: 'OUR EXPERIENCE IN NUMBERS.',
+      },
+      services: {
+        label: '03 / EXPERTISE',
+        title: 'OUR EXPERTISE',
+      },
+      philosophy: {
+        title: 'OUR ATTENTION TO DETAIL DEFINES THE CHARACTER OF OUR BUILDINGS.',
+      },
+      contact: {
+        title: 'LET’S BUILD THE FUTURE TOGETHER.',
+        cta: 'CONTACT US',
+      },
     },
     corporate: {
       title: 'Corporate',

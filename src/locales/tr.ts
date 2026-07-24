@@ -32,8 +32,40 @@ export interface Translations {
   };
   pages: {
     home: {
-      title: string;
-      placeholder: string;
+      hero: {
+        eyebrow: string;
+        titleLine1: string;
+        titleLine2: string;
+        description: string;
+        projectsCTA: string;
+        aboutCTA: string;
+      };
+      intro: {
+        label: string;
+        title: string;
+        description: string;
+        cta: string;
+      };
+      projects: {
+        label: string;
+        title: string;
+        description: string;
+        viewProject: string;
+      };
+      stats: {
+        title: string;
+      };
+      services: {
+        label: string;
+        title: string;
+      };
+      philosophy: {
+        title: string;
+      };
+      contact: {
+        title: string;
+        cta: string;
+      };
     };
     corporate: {
       title: string;
@@ -100,7 +132,7 @@ export const tr: Translations = {
     legal: 'Aydınlatma Metinleri',
     contactUs: 'Bize Ulaşın',
     address: 'Peyas Mahallesi, Mahabad Bulvarı (75. Yol), Kutay Şato Plaza, Dış Kapı No: 73, İç Kapı No: 41, 21070 Kayapınar / Diyarbakır',
-    phone: '+90 312 397 09 29',
+    phone: '+90 507 066 01 42',
     email: 'info@furensinsaat.com',
     copyright: 'Copyright © 2026 Furens İnşaat. Tüm hakları saklıdır.',
     kvkk: 'Kişisel Verilerin Korunması',
@@ -115,8 +147,39 @@ export const tr: Translations = {
 
   pages: {
     home: {
-      title: 'Ana Sayfa',
-      placeholder: 'Ana sayfa içeriği yakında eklenecek.',
+      hero: {
+        titleLine1: 'GELECEĞİ',
+        titleLine2: 'İNŞA EDİYORUZ.',
+        description: 'Modern mimariyi güçlü mühendislik anlayışıyla bir araya getirerek kalıcı yaşam alanları oluşturuyoruz.',
+        projectsCTA: 'PROJELERİ KEŞFET',
+        aboutCTA: 'BİZİ TANIYIN',
+      },
+      intro: {
+        label: '01 / FURENS',
+        title: 'YAŞAM ALANLARINDAN\nDAHA FAZLASINI\nİNŞA EDİYORUZ.',
+        description: 'Furens İnşaat, modern mimari anlayışını güçlü mühendislik standartlarıyla bir araya getirerek nitelikli ve sürdürülebilir yaşam alanları geliştirir.',
+        cta: "FURENS'İ KEŞFET",
+      },
+      projects: {
+        label: '02 / PROJELER',
+        title: 'SEÇİLİ PROJELER',
+        description: 'Mimariyi, yaşamı ve mühendisliği bir araya getiren projelerimizden seçkiler.',
+        viewProject: 'KEŞFET',
+      },
+      stats: {
+        title: 'DENEYİMİMİZİ RAKAMLARLA ANLATIYORUZ.',
+      },
+      services: {
+        label: '03 / UZMANLIKLARIMIZ',
+        title: 'UZMANLIKLARIMIZ',
+      },
+      philosophy: {
+        title: 'DETAYLARA VERDİĞİMİZ ÖNEM, YAPILARIMIZIN KARAKTERİNİ OLUŞTURUR.',
+      },
+      contact: {
+        title: 'BİRLİKTE GELECEĞİ İNŞA EDELİM.',
+        cta: 'BİZE ULAŞIN',
+      },
     },
     corporate: {
       title: 'Kurumsal',

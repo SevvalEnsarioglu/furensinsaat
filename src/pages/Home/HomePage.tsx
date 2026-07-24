@@ -1,38 +1,50 @@
-import { useLanguage } from '../../hooks/useLanguage';
-import Container from '../../components/common/Container';
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import HeroSection from './sections/HeroSection';
+import IntroSection from './sections/IntroSection';
+import FeaturedProjectsSection from './sections/FeaturedProjectsSection';
+import StatsSection from './sections/StatsSection';
+import ServicesPreviewSection from './sections/ServicesPreviewSection';
+import PhilosophySection from './sections/PhilosophySection';
+import ContactCTASection from './sections/ContactCTASection';
 
-// ─────────────────────────────────────────────────────────────
-// HomePage — Placeholder
-// Full Home Page design will be implemented in Phase 2.
-// ─────────────────────────────────────────────────────────────
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  
+  useEffect(() => {
+    // Ensure we start at top and GSAP calculates positions correctly
+    window.scrollTo(0, 0);
+    
+    // Refresh scroll triggers after all assets load to prevent wrong trigger positions
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    
+    // If document is already loaded, refresh immediately
+    if (document.readyState === 'complete') {
+      ScrollTrigger.refresh();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+    
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      // Clean up any remaining scroll triggers specific to this page
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
 
   return (
-    <div
-      className="flex flex-1 flex-col items-center justify-center"
-      style={{ minHeight: 'calc(100vh - 4rem)', paddingTop: '4rem' }}
-    >
-      <Container>
-        <div className="flex flex-col items-center gap-6 py-32 text-center">
-          <span
-            className="text-xs font-medium uppercase tracking-[0.3em]"
-            style={{ color: 'var(--accent)' }}
-          >
-            Phase 1 — Placeholder
-          </span>
-          <h1
-            className="font-display text-5xl font-light sm:text-6xl lg:text-7xl"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--foreground)' }}
-          >
-            {t.pages.home.title}
-          </h1>
-          <p style={{ color: 'var(--muted)' }}>
-            {t.pages.home.placeholder}
-          </p>
-        </div>
-      </Container>
-    </div>
+    <main className="w-full flex flex-col bg-[var(--background)]">
+      <HeroSection />
+      <IntroSection />
+      <FeaturedProjectsSection />
+      <StatsSection />
+      <ServicesPreviewSection />
+      <PhilosophySection />
+      <ContactCTASection />
+    </main>
   );
 }

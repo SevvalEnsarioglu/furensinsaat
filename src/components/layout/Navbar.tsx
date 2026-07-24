@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
@@ -29,26 +29,33 @@ const navItems: { href: string; key: NavKey }[] = [
 
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={cn('flex flex-col leading-none', compact ? 'gap-0' : 'gap-0.5')}>
-      <span
-        className="font-display font-semibold tracking-widest text-[var(--foreground)] uppercase"
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: compact ? '0.95rem' : '1.05rem',
-          letterSpacing: '0.18em',
-        }}
-      >
-        FURENS
-      </span>
-      <span
-        className="font-sans font-light text-[var(--muted)] uppercase"
-        style={{
-          fontSize: compact ? '0.55rem' : '0.6rem',
-          letterSpacing: '0.32em',
-        }}
-      >
-        İNŞAAT
-      </span>
+    <div className="flex items-center gap-3">
+      <img 
+        src="/furens.svg" 
+        alt="Furens Logo" 
+        className={cn("w-auto object-contain", compact ? "h-6" : "h-7 lg:h-8")} 
+      />
+      <div className={cn('flex flex-col leading-none', compact ? 'gap-0' : 'gap-0.5')}>
+        <span
+          className="font-display font-semibold tracking-widest uppercase transition-colors duration-300 text-[var(--foreground)]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: compact ? '0.95rem' : '1.05rem',
+            letterSpacing: '0.18em',
+          }}
+        >
+          FURENS
+        </span>
+        <span
+          className="font-sans font-light uppercase transition-colors duration-300 text-[var(--muted)]"
+          style={{
+            fontSize: compact ? '0.55rem' : '0.6rem',
+            letterSpacing: '0.32em',
+          }}
+        >
+          İNŞAAT
+        </span>
+      </div>
     </div>
   );
 }
@@ -57,7 +64,7 @@ function Logo({ compact = false }: { compact?: boolean }) {
 // Theme Toggle Button
 // ─────────────────────────────────────────────────────────────
 
-function ThemeToggle({ label }: { label: string }) {
+function ThemeToggle({ label, isTransparent = false }: { label: string; isTransparent?: boolean }) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -69,8 +76,10 @@ function ThemeToggle({ label }: { label: string }) {
       title={label}
       className={cn(
         'flex h-8 w-8 items-center justify-center rounded-sm',
-        'text-[var(--foreground-secondary)] transition-colors duration-200',
-        'hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
+        'transition-colors duration-300',
+        isTransparent 
+          ? 'text-white hover:bg-white/10' 
+          : 'text-[var(--foreground-secondary)] hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
       )}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -104,7 +113,7 @@ function ThemeToggle({ label }: { label: string }) {
 // Language Selector
 // ─────────────────────────────────────────────────────────────
 
-function LanguageSelector({ label }: { label: string }) {
+function LanguageSelector({ label, isTransparent = false }: { label: string; isTransparent?: boolean }) {
   const { lang, setLang } = useLanguage();
 
   const toggle = () => {
@@ -122,15 +131,25 @@ function LanguageSelector({ label }: { label: string }) {
       className={cn(
         'flex items-center gap-1 px-2 py-1 rounded-sm',
         'text-xs font-medium tracking-widest uppercase',
-        'text-[var(--foreground-secondary)] transition-colors duration-200',
-        'hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
+        'transition-colors duration-300',
+        isTransparent
+          ? 'text-white/80 hover:text-white hover:bg-white/10'
+          : 'text-[var(--foreground-secondary)] hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
       )}
     >
-      <span className={cn(lang === 'tr' ? 'text-[var(--foreground)]' : 'text-[var(--muted)]')}>
+      <span className={cn(
+        lang === 'tr' 
+          ? (isTransparent ? 'text-white' : 'text-[var(--foreground)]') 
+          : (isTransparent ? 'text-white/50' : 'text-[var(--muted)]')
+      )}>
         TR
       </span>
-      <span className="text-[var(--border)]">/</span>
-      <span className={cn(lang === 'en' ? 'text-[var(--foreground)]' : 'text-[var(--muted)]')}>
+      <span className={cn("transition-colors duration-300", isTransparent ? "text-white/30" : "text-[var(--border)]")}>/</span>
+      <span className={cn(
+        lang === 'en' 
+          ? (isTransparent ? 'text-white' : 'text-[var(--foreground)]') 
+          : (isTransparent ? 'text-white/50' : 'text-[var(--muted)]')
+      )}>
         EN
       </span>
     </motion.button>
@@ -262,16 +281,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 60);
+    setScrolled(window.scrollY > 10);
   }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // check initial position
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -283,7 +301,6 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  // Close menu on Escape
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMenuOpen(false);
@@ -299,16 +316,16 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' as const }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-40',
+          'fixed top-0 left-0 right-0 z-50',
           'transition-all duration-300 ease-in-out',
           scrolled
             ? 'bg-[var(--navbar-background)] backdrop-blur-md shadow-[var(--shadow-soft)]'
-            : 'bg-transparent',
+            : 'bg-[var(--background)]',
         )}
         role="banner"
       >
         <Container wide>
-          <div className="flex h-16 items-center lg:h-18 w-full">
+          <div className="flex h-16 items-center lg:h-[72px] w-full">
             {/* Left Segment: Logo */}
             <div className="flex flex-1 items-center justify-start">
               <NavLink
@@ -330,18 +347,10 @@ export default function Navbar() {
                   key={item.href}
                   to={item.href}
                   end={item.href === '/'}
-                  className={({ isActive }) =>
-                    cn(
-                      'relative text-sm font-medium tracking-wide',
-                      'transition-colors duration-200',
-                      'after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full',
-                      'after:origin-left after:scale-x-0 after:transition-transform after:duration-300',
-                      'after:bg-[var(--primary)] hover:after:scale-x-100',
-                      isActive
-                        ? 'text-[var(--primary)] after:scale-x-100'
-                        : 'text-[var(--foreground-secondary)] hover:text-[var(--foreground)]',
-                    )
-                  }
+                  className={({ isActive }) => {
+                    const baseClass = "relative text-sm font-medium tracking-wide transition-colors duration-300 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100";
+                    return `${baseClass} ${isActive ? 'text-[var(--primary)] after:bg-[var(--primary)] after:scale-x-100' : 'text-[var(--foreground-secondary)] hover:text-[var(--foreground)] after:bg-[var(--primary)]'}`;
+                  }}
                 >
                   {t.nav[item.key]}
                 </NavLink>
@@ -354,22 +363,21 @@ export default function Navbar() {
               <LanguageSelector label={t.accessibility.selectLanguage} />
             </div>
 
-            {/* Mobile Hamburger (visible only on mobile, takes the right side) */}
+            {/* Mobile Hamburger */}
             <div className="flex flex-1 items-center justify-end lg:hidden">
               <button
-              className={cn(
-                'flex h-10 w-10 items-center justify-center rounded-sm lg:hidden',
-                'text-[var(--foreground-secondary)]',
-                'hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
-                'transition-colors duration-200',
-              )}
-              onClick={() => setMenuOpen(true)}
-              aria-label={t.accessibility.openMenu}
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-            >
-              <Menu size={22} strokeWidth={1.5} />
-            </button>
+                className={cn(
+                  'flex h-10 w-10 items-center justify-center rounded-sm',
+                  'transition-colors duration-300',
+                  'text-[var(--foreground-secondary)] hover:text-[var(--foreground)] hover:bg-[var(--surface-secondary)]',
+                )}
+                onClick={() => setMenuOpen(true)}
+                aria-label={t.accessibility.openMenu}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+              >
+                <Menu size={22} strokeWidth={1.5} />
+              </button>
             </div>
           </div>
         </Container>

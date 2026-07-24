@@ -17,4 +17,5 @@ export interface Project {
   category?: string;  // e.g. "Konut" | "Ticari" | "Karma Kullanım"
   client?: string;
   images?: string[];
+  featured?: boolean;
 }
