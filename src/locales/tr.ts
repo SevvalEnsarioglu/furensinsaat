@@ -167,8 +167,66 @@ export interface Translations {
       placeholder: string;
     };
     contact: {
-      title: string;
-      placeholder: string;
+      hero: {
+        label: string;
+        titleLine1: string;
+        titleLine2: string;
+        description: string;
+      };
+      details: {
+        title: string;
+        addressLabel: string;
+        addressValue: string;
+        phoneLabel: string;
+        phoneValue: string;
+        emailLabel: string;
+        emailValue: string;
+        workingHoursLabel: string;
+        weekdays: string;
+        saturday: string;
+        sunday: string;
+        mapTitle: string;
+      };
+      form: {
+        title: string;
+        description: string;
+        fullNameLabel: string;
+        fullNamePlaceholder: string;
+        emailLabel: string;
+        emailPlaceholder: string;
+        phoneLabel: string;
+        phonePlaceholder: string;
+        subjectLabel: string;
+        subjectPlaceholder: string;
+        messageLabel: string;
+        messagePlaceholder: string;
+        consent: string;
+        submit: string;
+        sending: string;
+        success: string;
+        alternativeContact: string;
+        subjects: {
+          project: string;
+          sales: string;
+          partnership: string;
+          quote: string;
+          corporate: string;
+          other: string;
+        };
+        errors: {
+          required: string;
+          invalidEmail: string;
+          shortName: string;
+          shortMessage: string;
+          consentRequired: string;
+        };
+      };
+      closing: {
+        titleLine1: string;
+        titleLine2: string;
+        description: string;
+        cta: string;
+      };
     };
   };
   common: {
@@ -402,8 +460,66 @@ export const tr: Translations = {
       placeholder: 'Hizmetler sayfası içeriği yakında eklenecek.',
     },
     contact: {
-      title: 'İletişim',
-      placeholder: 'İletişim formu yakında eklenecek.',
+      hero: {
+        label: '01 / İLETİŞİM',
+        titleLine1: 'BİRLİKTE',
+        titleLine2: 'KONUŞALIM.',
+        description: 'Yeni bir proje, iş birliği veya detaylı bilgi için bizimle iletişime geçebilirsiniz. Ekibimiz size en kısa sürede dönüş yapacaktır.',
+      },
+      details: {
+        title: 'İLETİŞİM BİLGİLERİ',
+        addressLabel: 'ADRES',
+        addressValue: 'Peyas Mahallesi, Mahabad Bulvarı (75. Yol), Kutay Şato Plaza, Dış Kapı No: 73, İç Kapı No: 41, 21070 Kayapınar / Diyarbakır',
+        phoneLabel: 'TELEFON',
+        phoneValue: '+90 507 066 01 42',
+        emailLabel: 'E-POSTA',
+        emailValue: 'info@furensinsaat.com',
+        workingHoursLabel: 'ÇALIŞMA SAATLERİ',
+        weekdays: 'Pazartesi – Cuma: 09:00 – 18:00',
+        saturday: 'Cumartesi: 10:00 – 14:00',
+        sunday: 'Pazar: Kapalı',
+        mapTitle: 'HARİTADA GÖRÜNTÜLE',
+      },
+      form: {
+        title: 'MESAJ GÖNDER',
+        description: 'Lütfen aşağıdaki formu doldurarak bize ulaşın.',
+        fullNameLabel: 'Ad Soyad *',
+        fullNamePlaceholder: 'Adınız Soyadınız',
+        emailLabel: 'E-Posta *',
+        emailPlaceholder: 'ornek@email.com',
+        phoneLabel: 'Telefon',
+        phonePlaceholder: '+90 5XX XXX XX XX',
+        subjectLabel: 'Konu *',
+        subjectPlaceholder: 'Konu seçiniz',
+        messageLabel: 'Mesaj *',
+        messagePlaceholder: 'Projeniz veya talebiniz hakkında kısa bilgi verebilir misiniz?',
+        consent: 'KVKK Aydınlatma Metni’ni okudum ve kişisel verilerimin işlenmesine onay veriyorum.',
+        submit: 'MESAJ GÖNDER',
+        sending: 'GÖNDERİLİYOR...',
+        success: 'MESAJINIZ ALINDI',
+        alternativeContact: 'Dilerseniz +90 507 066 01 42 numaralı hattımızdan da bize ulaşabilirsiniz.',
+        subjects: {
+          project: 'Proje Bilgisi',
+          sales: 'Satış ve Teslim Bilgisi',
+          partnership: 'İş Birliği',
+          quote: 'Teklif Talebi',
+          corporate: 'Kurumsal İletişim',
+          other: 'Diğer',
+        },
+        errors: {
+          required: 'Bu alan zorunludur.',
+          invalidEmail: 'Lütfen geçerli bir e-posta adresi giriniz.',
+          shortName: 'Adınız en az 2 karakter olmalıdır.',
+          shortMessage: 'Mesajınız en az 10 karakter olmalıdır.',
+          consentRequired: 'Devam etmek için onay vermelisiniz.',
+        },
+      },
+      closing: {
+        titleLine1: 'DOĞRU PROJE,',
+        titleLine2: 'DOĞRU İLETİŞİMLE BAŞLAR.',
+        description: 'Furens ekibi, projenizi dinlemek ve doğru çözümü birlikte geliştirmek için hazır.',
+        cta: 'KURUMSAL YAKLAŞIMIMIZ',
+      },
     },
   },
 

@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
 import Container from '../common/Container';
 import { cn } from '../../utils/cn';
+import { contactInfo } from '../../data/contact';
 
 // ─────────────────────────────────────────────────────────────
 // Logo
@@ -166,23 +167,23 @@ export default function Footer() {
 
             <address className="flex max-w-[300px] flex-col gap-5 text-sm not-italic text-[var(--footer-muted)]">
               <p className="leading-7">
-                {t.footer.address}
+                {contactInfo.address.line1} {contactInfo.address.line2}{' '}
+                {contactInfo.address.line3} {contactInfo.address.line4}
               </p>
 
               <a
-                href={`tel:${t.footer.phone.replace(/\s+/g, '')}`}
+                href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
                 className="w-fit transition-colors hover:text-[var(--footer-foreground)]"
               >
-                {t.footer.phone}
+                {contactInfo.phone}
               </a>
 
               <a
-                href={`mailto:${t.footer.email}`}
+                href={`mailto:${contactInfo.email}`}
                 className="w-fit transition-colors hover:text-[var(--footer-foreground)]"
               >
-                {t.footer.email}
+                {contactInfo.email}
               </a>
-
 
             </address>
           </div>

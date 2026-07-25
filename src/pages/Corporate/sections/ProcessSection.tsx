@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../../../hooks/useLanguage';
-import Container from '../../../components/common/Container';
 import { corporateProcess } from '../../../data/corporate';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProcessSection() {
   const { t } = useLanguage();
-  const sectionRef = useRef<HTMLSelectElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);

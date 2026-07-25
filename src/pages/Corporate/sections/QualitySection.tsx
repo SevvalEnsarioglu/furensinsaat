@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function QualitySection() {
   const { t } = useLanguage();
-  const sectionRef = useRef<HTMLSelectElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const titleLinesRef = useRef<HTMLDivElement[]>([]);
   const pillarsRef = useRef<HTMLDivElement[]>([]);
 
