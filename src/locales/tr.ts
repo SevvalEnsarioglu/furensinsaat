@@ -68,8 +68,90 @@ export interface Translations {
       };
     };
     corporate: {
-      title: string;
-      placeholder: string;
+      hero: {
+        label: string;
+        titleLine1: string;
+        titleLine2: string;
+        titleLine3: string;
+        description: string;
+        metadata: {
+          headquartersLabel: string;
+          headquartersValue: string;
+          activityLabel: string;
+          activityValue: string;
+          approachLabel: string;
+          approachValue: string;
+        };
+      };
+      about: {
+        label: string;
+        title: string;
+        paragraph1: string;
+        paragraph2: string;
+        info: {
+          foundedLabel: string;
+          foundedValue: string;
+          headquartersLabel: string;
+          headquartersValue: string;
+          activityLabel: string;
+          activityValue: string;
+          expertiseLabel: string;
+          expertiseValue: string;
+        };
+      };
+      manifesto: {
+        titleLine1: string;
+        titleLine2: string;
+        titleLine3: string;
+        description: string;
+      };
+      values: {
+        label: string;
+        items: {
+          trust: { title: string; description: string; };
+          architecture: { title: string; description: string; };
+          engineering: { title: string; description: string; };
+          sustainability: { title: string; description: string; };
+          human: { title: string; description: string; };
+        };
+      };
+      process: {
+        label: string;
+        steps: {
+          analysis: { title: string; description: string; };
+          design: { title: string; description: string; };
+          engineering: { title: string; description: string; };
+          construction: { title: string; description: string; };
+          delivery: { title: string; description: string; };
+        };
+      };
+      statement: {
+        titleLine1: string;
+        titleLine2: string;
+        titleLine3: string;
+      };
+      quality: {
+        titleLine1: string;
+        titleLine2: string;
+        titleLine3: string;
+        items: {
+          material: { title: string; description: string; };
+          application: { title: string; description: string; };
+          control: { title: string; description: string; };
+        };
+      };
+      visionMission: {
+        visionLabel: string;
+        visionText: string;
+        missionLabel: string;
+        missionText: string;
+      };
+      cta: {
+        titleLine1: string;
+        titleLine2: string;
+        projectsCTA: string;
+        contactCTA: string;
+      };
     };
     projects: {
       title: string;
@@ -182,8 +264,129 @@ export const tr: Translations = {
       },
     },
     corporate: {
-      title: 'Kurumsal',
-      placeholder: 'Kurumsal sayfa içeriği yakında eklenecek.',
+      hero: {
+        label: '01 / KURUMSAL',
+        titleLine1: 'YAPILAR DEĞİL,',
+        titleLine2: 'KALICI DEĞERLER',
+        titleLine3: 'ÜRETİYORUZ.',
+        description: 'Furens İnşaat; mimari, mühendislik ve yaşam kültürünü bir araya getirerek bulunduğu bölgeye değer katan yapılar geliştirir.',
+        metadata: {
+          headquartersLabel: 'MERKEZ',
+          headquartersValue: 'DİYARBAKIR',
+          activityLabel: 'FAALİYET',
+          activityValue: 'YAPI & PROJE GELİŞTİRME',
+          approachLabel: 'YAKLAŞIM',
+          approachValue: 'MİMARİ & MÜHENDİSLİK',
+        },
+      },
+      about: {
+        label: '02 / BİZ KİMİZ',
+        title: 'GEÇMİŞTEN ALDIĞIMIZ DENEYİMİ, BUGÜNÜN MÜHENDİSLİĞİ VE GELECEĞİN YAŞAM ANLAYIŞIYLA BİRLEŞTİRİYORUZ.',
+        paragraph1: 'Furens İnşaat, estetik kaygıyı teknik güvenilirlikle bir araya getiren bütüncül bir yapı anlayışına sahiptir.',
+        paragraph2: 'Her projeyi yalnızca fiziksel bir yapı olarak değil, bulunduğu çevreye ve içinde yaşayan insanlara uzun vadeli değer sağlayan bir yaşam alanı olarak ele alır.',
+        info: {
+          foundedLabel: 'KURULUŞ',
+          foundedValue: '2016',
+          headquartersLabel: 'MERKEZ',
+          headquartersValue: 'DİYARBAKIR',
+          activityLabel: 'FAALİYET',
+          activityValue: 'YAPI & PROJE GELİŞTİRME',
+          expertiseLabel: 'UZMANLIK',
+          expertiseValue: 'KONUT & TİCARİ YAPILAR',
+        },
+      },
+      manifesto: {
+        titleLine1: 'İYİ BİR YAPI,',
+        titleLine2: 'YALNIZCA BUGÜN İÇİN',
+        titleLine3: 'TASARLANMAZ.',
+        description: 'Uzun ömürlü, sürdürülebilir ve bulunduğu çevreyle ilişki kuran yaşam alanları üretmenin sorumluluğunu taşıyoruz.',
+      },
+      values: {
+        label: 'DEĞERLERİMİZ',
+        items: {
+          trust: {
+            title: 'GÜVEN',
+            description: 'Her aşamada şeffaf, tutarlı ve sorumlu bir yaklaşım benimsiyoruz.',
+          },
+          architecture: {
+            title: 'NİTELİKLİ MİMARİ',
+            description: 'Estetik ve işlevselliği aynı yapıda buluşturan tasarım anlayışı geliştiriyoruz.',
+          },
+          engineering: {
+            title: 'GÜÇLÜ MÜHENDİSLİK',
+            description: 'Dayanıklılığı, güvenliği ve teknik kaliteyi projenin temeli olarak görüyoruz.',
+          },
+          sustainability: {
+            title: 'SÜRDÜRÜLEBİLİRLİK',
+            description: 'Kaynakları doğru kullanan, uzun ömürlü ve çevresiyle uyumlu yapılar üretiyoruz.',
+          },
+          human: {
+            title: 'İNSAN ODAKLI YAŞAM',
+            description: 'İçinde yaşayan insanların günlük ihtiyaçlarını ve yaşam kalitesini merkeze alıyoruz.',
+          },
+        },
+      },
+      process: {
+        label: 'SÜRECİMİZ',
+        steps: {
+          analysis: {
+            title: 'ANALİZ',
+            description: 'Arsa, çevre, kullanıcı profili ve proje ihtiyaçlarını bütüncül olarak değerlendiririz.',
+          },
+          design: {
+            title: 'TASARIM',
+            description: 'Mimari fikir ile işlevsel ihtiyaçları dengeli bir çözümde bir araya getiririz.',
+          },
+          engineering: {
+            title: 'MÜHENDİSLİK',
+            description: 'Güvenlik, dayanıklılık, teknik doğruluk ve uygulanabilirliği detaylandırırız.',
+          },
+          construction: {
+            title: 'UYGULAMA',
+            description: 'Projeyi planlanan kalite standartları ve saha disipliniyle hayata geçiririz.',
+          },
+          delivery: {
+            title: 'TESLİM & YAŞAM',
+            description: 'Uzun ömürlü, değer üreten ve kullanıcılarıyla yaşayan mekânlar teslim ederiz.',
+          },
+        },
+      },
+      statement: {
+        titleLine1: 'DETAYLARDA BAŞLAYAN',
+        titleLine2: 'KALİTE, BÜTÜN YAPIYA',
+        titleLine3: 'YANSIR.',
+      },
+      quality: {
+        titleLine1: 'KALİTEYİ SONUÇTA DEĞİL,',
+        titleLine2: 'SÜRECİN HER AŞAMASINDA',
+        titleLine3: 'ARIYORUZ.',
+        items: {
+          material: {
+            title: 'MALZEME',
+            description: 'Projeye uygun, güvenilir ve uzun ömürlü malzeme seçimi.',
+          },
+          application: {
+            title: 'UYGULAMA',
+            description: 'Planlama, saha kontrolü ve detay çözümünde yüksek hassasiyet.',
+          },
+          control: {
+            title: 'KONTROL',
+            description: 'Projenin her aşamasında teknik denetim ve kalite standardı takibi.',
+          },
+        },
+      },
+      visionMission: {
+        visionLabel: 'VİZYON',
+        visionText: 'Kentlerin geleceğine değer katan, mimari ve mühendislik kalitesiyle örnek gösterilen bir yapı markası olmak.',
+        missionLabel: 'MİSYON',
+        missionText: 'Güvenli, nitelikli ve uzun ömürlü yaşam alanlarını sorumlu bir üretim anlayışıyla hayata geçirmek.',
+      },
+      cta: {
+        titleLine1: 'FURENS PROJELERİNİ',
+        titleLine2: 'YAKINDAN KEŞFEDİN.',
+        projectsCTA: 'PROJELERİ İNCELE',
+        contactCTA: 'BİZE ULAŞIN',
+      },
     },
     projects: {
       title: 'Projeler',
